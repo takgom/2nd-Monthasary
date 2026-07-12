@@ -702,3 +702,44 @@ h2 {
     height: 25px;
   }
 }
+
+/* MAKE LETTERS SCROLLABLE ON PHONE */
+@media (max-width: 760px) {
+  .page-content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+  }
+
+  .handwritten {
+    max-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+  }
+
+  .handwritten p,
+  .caption,
+  .signature {
+    pointer-events: auto;
+  }
+
+  /* Move tap-to-turn zones away from the center text area */
+  .turn-zone {
+    top: auto;
+    bottom: 70px;
+    height: 80px;
+    width: 48%;
+    z-index: 30;
+  }
+
+  .left-zone {
+    left: 0;
+  }
+
+  .right-zone {
+    right: 0;
+  }
+}
