@@ -529,3 +529,176 @@ h2 {
     border-radius: 18px;
   }
 }
+
+/* PHONE FRIENDLY FIX */
+@media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .app {
+    min-height: 100vh;
+    padding: 12px 8px;
+    align-items: start;
+  }
+
+  .diary-wrap {
+    width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    margin-top: 4px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .closed-diary {
+    width: min(310px, 86vw);
+    height: 430px;
+    border-radius: 14px 26px 26px 14px;
+  }
+
+  .diary-label {
+    margin-top: 92px;
+    font-size: 0.68rem;
+  }
+
+  .diary-title {
+    font-size: 3rem;
+    width: 78%;
+  }
+
+  .page-stack {
+    right: -15px;
+    width: 22px;
+  }
+
+  .book-scene {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 4px 0 0;
+    perspective: 1200px;
+  }
+
+  .book {
+    width: min(340px, 94vw);
+    height: 560px;
+    min-height: 560px;
+    transform: rotateX(5deg);
+  }
+
+  .book::before {
+    inset: 18px -16px -14px 18px;
+  }
+
+  .spread {
+    grid-template-columns: 1fr;
+  }
+
+  .sheet {
+    border-radius: 18px;
+  }
+
+  .sheet.left,
+  .sheet.right {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(95, 49, 31, 0.16);
+    border-radius: 18px;
+  }
+
+  .sheet.left {
+    opacity: 1;
+  }
+
+  .sheet.right {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* On phone, show the right/writing page after each click by using the spread animation.
+     If you want writing first, swap these opacity values. */
+  .spread.active .sheet.left {
+    opacity: 1;
+  }
+
+  .page-content {
+    padding: 22px 20px;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .cover-box {
+    margin: 18px;
+    height: calc(100% - 36px);
+    justify-content: center;
+  }
+
+  .cover-side h2,
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .handwritten p,
+  .caption,
+  .signature {
+    font-size: 1.35rem;
+    line-height: 1.18;
+  }
+
+  .photo-frame {
+    height: 300px;
+    min-height: 300px;
+    border-width: 8px;
+    transform: none;
+  }
+
+  .photo-frame img {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .caption {
+    margin-top: 10px;
+  }
+
+  .turn-zone {
+    top: 0;
+    bottom: 0;
+    width: 50%;
+  }
+
+  .music-bar {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  #musicButton {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.82rem;
+  }
+
+  #pageStatus {
+    font-size: 0.82rem;
+  }
+
+  .falling-stuff span {
+    animation-duration: 13s;
+  }
+
+  .heart {
+    font-size: 20px;
+  }
+
+  .petal {
+    width: 16px;
+    height: 25px;
+  }
+}
