@@ -503,34 +503,7 @@ h2 {
   100% { transform: rotateY(0deg) translateX(0) scale(1); filter: brightness(1); }
 }
 
-@media (max-width: 760px) {
-  .closed-diary {
-    height: 500px;
-  }
-
-  .book-scene {
-    height: 580px;
-  }
-
-  .book {
-    width: min(360px, 92vw);
-    height: 540px;
-  }
-
-  .spread {
-    grid-template-columns: 1fr;
-  }
-
-  .sheet.left {
-    display: none;
-  }
-
-  .sheet.right {
-    border-radius: 18px;
-  }
-}
-
-/* PHONE FRIENDLY FIX */
+/* PHONE FRIENDLY VERSION */
 @media (max-width: 760px) {
   body {
     overflow-x: hidden;
@@ -613,25 +586,31 @@ h2 {
     border-radius: 18px;
   }
 
-  .sheet.left {
-    opacity: 1;
-  }
-
-  .sheet.right {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* On phone, show the right/writing page after each click by using the spread animation.
-     If you want writing first, swap these opacity values. */
   .spread.active .sheet.left {
     opacity: 1;
+  }
+
+  .spread.active .sheet.right {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .page-content {
     padding: 22px 20px;
     justify-content: flex-start;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+  }
+
+  .page-content.handwritten {
+    display: block;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
   }
 
   .cover-box {
@@ -669,9 +648,19 @@ h2 {
   }
 
   .turn-zone {
-    top: 0;
-    bottom: 0;
-    width: 50%;
+    top: auto;
+    bottom: 70px;
+    height: 80px;
+    width: 48%;
+    z-index: 30;
+  }
+
+  .left-zone {
+    left: 0;
+  }
+
+  .right-zone {
+    right: 0;
   }
 
   .music-bar {
@@ -700,46 +689,5 @@ h2 {
   .petal {
     width: 16px;
     height: 25px;
-  }
-}
-
-/* MAKE LETTERS SCROLLABLE ON PHONE */
-@media (max-width: 760px) {
-  .page-content {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    overscroll-behavior: contain;
-  }
-
-  .handwritten {
-    max-height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    overscroll-behavior: contain;
-  }
-
-  .handwritten p,
-  .caption,
-  .signature {
-    pointer-events: auto;
-  }
-
-  /* Move tap-to-turn zones away from the center text area */
-  .turn-zone {
-    top: auto;
-    bottom: 70px;
-    height: 80px;
-    width: 48%;
-    z-index: 30;
-  }
-
-  .left-zone {
-    left: 0;
-  }
-
-  .right-zone {
-    right: 0;
   }
 }
