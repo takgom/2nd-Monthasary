@@ -665,3 +665,21 @@ h2 {
   .heart { font-size: 20px; }
   .petal { width: 16px; height: 25px; }
 }
+
+.falling-stuff {
+  z-index: 80;
+}
+
+.start-screen {
+  z-index: 999;
+}
+
+.diary-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+.music-bar {
+  position: relative;
+  z-index: 90;
+}
